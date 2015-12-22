@@ -1,0 +1,67 @@
+<img src="/images/k.png"> </img>
+
+
+<div class="signup_block">
+
+
+  <%= form_for (:document) , url: documents_create_path, :html => { :multipart => true } do|f| %>
+
+      <div class="section_block" id="section_block">
+        <div class="login_content">
+          <div class="login-head">
+            <h1>Document Page</h1>
+          </div><!--login-head-->
+
+          <% if @document.errors.any? %>
+              <div class="error_messages">
+                <h2>Document is invalid</h2>
+                <ul>
+                  <% for message in @document.errors.full_messages %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <p class="form-group">
+            <%= f.label :title %><br />
+            <%= f.text_field :title %>
+          </p>
+
+          <p class="form-group">
+            <%= f.label :author %><br />
+            <%= f.text_field :author,:class => "username" %>
+          </p>
+
+          <p class="form-group">
+            <%= f.label :summary %><br />
+            <%= f.text_field :summary,:class => "username" %>
+          </p>
+
+          <p class="form-group">
+            <%= f.label :reference %><br />
+            <%= f.text_field :reference ,:class => "username"%>
+          </p>
+
+
+          <p class="form-group">
+            <%= f.label :conclusion %><br />
+            <%= f.text_field :conclusion ,:class => "username"%>
+          </p>
+
+          <p class="form-group">
+              <%= f.label :client_id %>
+            <%= f.select :client_id, Client.all.collect {|x| [x.firstname, x.id]}, {}, :multiple => true %>
+          </p>
+
+          <p>
+            <label for="upload_file">Upload File</label>
+            <%= file_field 'upload', 'dafile' %>
+          </p>
+
+          <p class="button"><%= f.submit %></p>
+        </div>
+      </div>
+  <% end %>
+</div>
+

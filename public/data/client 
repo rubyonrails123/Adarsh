@@ -1,0 +1,7 @@
+class Client < ActiveRecord::Base
+  has_many :Users
+end
+
+class Client < ActiveRecord::Base
+  has_many :teams
+end

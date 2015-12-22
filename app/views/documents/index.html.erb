@@ -1,0 +1,24 @@
+<h1> Documents listing</h1>
+<table>
+  <tr>
+    <th>title</th>
+    <th>author</th>
+    <th>summary</th>
+    <th>reference</th>
+    <th>conclusion</th>
+
+  </tr>
+  <% @document.each do |document| %>
+      <tr>
+        <td><%= document.title %></td>
+        <td><%= document.author  %></td>
+        <td><%= document.summary %></td>
+        <td><%= document.reference %></td>
+        <td><%= document.conclusion %></td>
+
+        <td><%= link_to 'Edit', edit_document_path(document) %></td>
+        <td><%= link_to 'Destroy',  { action: :destroy, id: document.id } %></td>
+
+
+      </tr>
+  <% end %>

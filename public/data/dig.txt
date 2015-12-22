@@ -1,0 +1,15 @@
+class Client < ActiveRecord::Base
+def try
+  has_and_belongs_to_many :documents
+  has_and_belongs_to_many :teams
+end
+
+class Document < ActiveRecord::Base
+  belongs_to :team
+  has_and_belongs_to_many :clients
+end
+
+class Team < ActiveRecord::Base
+    has_many :documents
+   has_and_belongs_to_many :clients
+end

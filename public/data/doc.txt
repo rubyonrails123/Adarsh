@@ -1,0 +1,39 @@
+class Client < ActiveRecord::Base
+def try
+  has_and_belongs_to_many :documents
+  has_and_belongs_to_many :teams
+  create_table : clients do |j|
+  j.string :name
+  j.number :1
+  j.image upload
+  j.create text
+  j.edit text
+  j.delete text
+  j.timestamps null: false
+end
+ 
+class Document < ActiveRecord::Base
+  belongs_to :team
+  has_and_belongs_to_many :clients
+  create_table : documents do |k|
+  k.anatomy :name
+  k.number :2
+  k.image upload
+  k.create text
+  k.edit text
+  k.delete text
+  k.timestamp null:false 
+end
+ 
+class Team < ActiveRecord::Base
+    has_many :documents
+   has_and_belongs_to_many :clients
+   create_table : team do |a|
+   a.string :name
+   a.number :1
+   a.image upload
+   a.create text
+   a.edit text
+   a.delete text
+   a.timestamp null:false
+end

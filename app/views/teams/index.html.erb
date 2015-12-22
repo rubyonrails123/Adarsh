@@ -1,0 +1,27 @@
+<h1> Team listing</h1>
+<table>
+  <tr>
+    <th>firstname</th>
+    <th>lastname</th>
+    <th>age</th>
+    <th>companyname</th>
+    <th>email</th>
+    <th>password</th>
+
+  </tr>
+  <% @team.each do |team| %>
+      <tr>
+
+        <td><%= team.firstname %></td>
+        <td><%= team.lastname  %></td>
+        <td><%= team.age %></td>
+        <td><%= team.companyname %></td>
+        <td><%= team.email  %></td>
+        <td><%= team.password %></td>
+
+        <td><%= link_to 'Edit', edit_team_path(team) %></td>
+        <td><%=link_to 'Destroy',  { action: :destroy, id: team.id } %></td>
+
+      </tr>
+  <% end %>
+</table>

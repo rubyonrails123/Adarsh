@@ -1,0 +1,62 @@
+<img src="/images/k.png"> </img>
+<div class="signup_block">
+
+  <%= form_for (:user) , url: users_path, :html => { :multipart => true } do|f| %>
+
+
+      <div class="section_block" id="section_block">
+        <div class="login_content">
+          <div class="login-head">
+            <h1>User Page</h1>
+          </div><!--login-head-->
+
+          <% if @user.errors.any? %>
+              <div class="error_messages">
+                <h2>User is invalid</h2>
+                <ul>
+                  <% for message in @user.errors.full_messages %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <p class="form-group">
+            <%= f.label :firstname %><br />
+            <%= f.text_field :firstname %>
+          </p>
+
+          <p class="form-group">
+            <%= f.label :lastname%><br />
+            <%= f.text_field :lastname,:class => "username" %>
+          </p>
+
+          <p class="form-group">
+            <%= f.label :age%><br />
+            <%= f.text_field :age,:class => "username" %>
+          </p>
+
+          <p class="form-group">
+            <%= f.label :user %><br />
+            <%= f.text_field :user ,:class => "username"%>
+          </p>
+
+
+          <p class="form-group">
+            <%= f.label :email %><br />
+            <%= f.text_field :email ,:class => "username"%>
+          </p>
+          <p class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password ,:class => "username"%>
+          </p>
+
+          <p class="button"><%= f.submit %></p>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+
+
+
